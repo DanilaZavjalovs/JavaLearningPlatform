@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create topic</title>
+    <script src="https://cdn.tiny.cloud/1/552bbgvxalevo6cg7r2lq3gwc5phenxxz25o1mg5dubr3esx/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+
+    <style>
+
+        #redactor {
+            max-height: 300px;
+            max-width: 1500px;
+            margin: 15px 25px;
+        }
+
+        #redactorButton {
+            height: 60px;
+            width: 250px;
+            margin: 120px 450px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <form method="post" id="redactor">
+            <textarea id="textRedactor">Write your topic</textarea>
+        </form>
+
+    </div>
+
+    <button id="redactorButton">Get data</button>
+
+    <script>
+        tinymce.init({
+            selector: '#textRedactor',
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+                'pagebreak', 'tinymcespellchecker'
+            ]
+        });
+    </script>
+
+    <script>
+        const textArea = document.querySelector('#textRedactor');
+
+        redactorButton.addEventListener('click', () => {
+            // Get the content from the TinyMCE editor
+            let content = tinymce.get('textRedactor').getContent();
+
+            // Example of sending data using fetch
+            fetch('/createTopic/saveTopic', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ content: content }),
+            })
+                .then(data => {
+                    console.log('Data sent successfully:', data);
+                })
+                .catch(error => {
+                    console.error('Error sending data:', error);
+                });
+        });
+    </script>
+</body>
+</html>
