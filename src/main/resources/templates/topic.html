@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Details</title>
+</head>
+<body>
+<h2>Topic Details</h2>
+
+<div>
+    <strong>Name:</strong> <span th:text="${topicDto.name}"></span>
+</div>
+
+<div>
+    <strong>Content:</strong> <span th:utext="${topicDto.content}"></span>
+</div>
+
+<div>
+    <strong>Author:</strong> <span th:text="${topicDto.author}"></span>
+</div>
+
+<div>
+    <strong>Creation Date:</strong> <span th:text="${#dates.format(topicDto.creationDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+</div>
+</body>
+</html>

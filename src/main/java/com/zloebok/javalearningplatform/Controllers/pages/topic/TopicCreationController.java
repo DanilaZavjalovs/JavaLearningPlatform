@@ -1,4 +1,4 @@
-package com.zloebok.javalearningplatform.Controllers.pages.topicCreation;
+package com.zloebok.javalearningplatform.Controllers.pages.topic;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

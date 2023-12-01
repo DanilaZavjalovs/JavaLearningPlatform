@@ -3,6 +3,7 @@ package com.zloebok.javalearningplatform.topics.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
@@ -17,5 +18,5 @@ public class TopicEntity {
     private String name;
     private String content;
     private String author;
-    private String creationDate;
+    private Timestamp creationDate;
 }

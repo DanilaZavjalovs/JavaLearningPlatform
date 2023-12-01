@@ -1,8 +1,8 @@
-package com.zloebok.javalearningplatform.Controllers.pages.topicCreation;
+package com.zloebok.javalearningplatform.Controllers.pages.topic;
 
 import com.zloebok.javalearningplatform.topics.dto.TopicDto;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.zloebok.javalearningplatform.topics.service.TopicService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/createTopic")
+@AllArgsConstructor
 public class RestTopicController {
 
-    Logger logger = LoggerFactory.getLogger(RestTopicController.class);
-
+    private final TopicService topicService;
 
     @PostMapping("/saveTopic")
     public void saveTopic(@RequestBody TopicDto topicDto) {
-        logger.info(topicDto.getContent());
+        topicService.saveTopic(topicDto);
     }
-
 }
