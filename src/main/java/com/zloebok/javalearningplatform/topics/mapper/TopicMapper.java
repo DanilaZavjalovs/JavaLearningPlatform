@@ -19,6 +19,7 @@ public class TopicMapper {
 
     public TopicDto EntityToDto(TopicEntity entity) {
         TopicDto dto = new TopicDto();
+        dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setAuthor(entity.getAuthor());
         dto.setContent(entity.getContent());

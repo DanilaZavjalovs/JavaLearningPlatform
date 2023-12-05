@@ -9,15 +9,14 @@
     <style>
 
         #redactor {
-            max-height: 300px;
-            max-width: 1500px;
+            width: 1300px;
             margin: 15px 25px;
         }
 
         #redactorButton {
             height: 60px;
             width: 250px;
-            margin: 120px 450px;
+            margin: 5% 20%;
             border-radius: 5px;
         }
 
@@ -25,16 +24,10 @@
 </head>
 <body>
 
-    <div>
+    <form method="post" id="redactor">
 
-
-
-        <form method="post" id="redactor">
-
-            <textarea id="textRedactor">Write your topic</textarea>
-        </form>
-
-    </div>
+        <textarea id="textRedactor">Write your topic</textarea>
+    </form>
 
     <button id="redactorButton">Get data</button>
 

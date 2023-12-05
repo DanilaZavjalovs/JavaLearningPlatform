@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -41,5 +42,12 @@ public class TopicService {
                 .orElseThrow(() -> new Exception("Could not find user by id"));
 
         return mapper.EntityToDto(entity);
+    }
+
+    public List<TopicDto> topicList() {
+        List<TopicDto> list = repository.findAll().stream()
+                .map(entity -> mapper.EntityToDto(entity)).toList();
+
+        return list;
     }
 }
