@@ -45,9 +45,7 @@ public class TopicService {
     }
 
     public List<TopicDto> topicList() {
-        List<TopicDto> list = repository.findAll().stream()
-                .map(entity -> mapper.EntityToDto(entity)).toList();
-
-        return list;
+        return repository.findAll().stream()
+                .map(mapper::EntityToDto).toList();
     }
 }
