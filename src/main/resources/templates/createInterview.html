@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Form</title>
+</head>
+<body>
+<h2>Interview Form</h2>
+
+<form th:action="@{/interview/submit-interview}" method="post" th:object="${interviewDto}">
+
+    <!-- Name -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" th:field="*{description}" required><br>
+
+    <!-- URL -->
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url" th:field="*{url}" required><br>
+
+    <!-- Technology Type -->
+    <label for="type">Technology Type:</label>
+    <select id="type" name="type" th:field="*{type}" required>
+        <option th:each="techType : ${T(com.zloebok.javalearningplatform.interview.entity.TechnologyType).values()}"
+                th:value="${techType}" th:text="${techType}"></option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

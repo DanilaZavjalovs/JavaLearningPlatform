@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviews</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Technology Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="interview : ${interviews}">
+        <td th:text="${interview.name}"></td>
+        <td th:text="${interview.description}"></td>
+        <td>
+            <a th:href="${interview.url}" th:text="${interview.url}" target="_blank"></a>
+        </td>
+        <td th:text="${interview.type}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
